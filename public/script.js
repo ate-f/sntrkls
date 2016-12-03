@@ -1,6 +1,7 @@
 /* eslint-env es6, node, browser*/
 /* eslint-disable no-console, no-unused-vars*/
-const names = ['Tine', 'Ate', 'Ria', 'Donald', 'Dara', 'Oscar', 'Ragna', 'Thomas', 'thomas2', 'ragna2'];
+var _names = ['Tine', 'Ate', 'Ria', 'Donald', 'Dara', 'Oscar', 'Ragna', 'Thomas', 'Lisa', 'Lana'];
+const names = _names.sort(); 
 
 function run() {
   let cookie = document.cookie;

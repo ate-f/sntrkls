@@ -8,7 +8,7 @@ var store = {};
 app.use( bodyParser.json() );       
 
 app.get('/t', function (req, res) {
-  res.send('Geef aan wie je hebt getrokken voor sinterklaas!');
+  res.send('Geef aan hoeveel cadeautjes je hebt gekocht voor iedereen!');
 })
 app.use(express.static('public'))
 
