@@ -19,28 +19,26 @@ app.listen(8080, function () {
   console.log('started sntrkls')
 })
 
-app.post('/presents', function (req, res) {
-  console.log(req.params);
-  console.log(req.body);
+app.post('/presents', function (req, res) {  
   var data = req.body;
   store[data.id] = data.presents
+  console.log("storing", data.presents);
   res.end('saved');
 })
 
 app.get('/presents/:id', function(req,res){
-  console.log(req.params.id);  
   res.send(store[req.params.id]);
 })
 
 app.delete('/presents/:id', function(req,res){
-  console.log(req.params);
+  
   delete store[req.params.id];
-  console.log(store)
+  
   res.send();
 })
 
 app.get('/showall',function(req,res){
-  console.log("showall");
+  
   var keys = Object.keys(store)
   var presentsTotal = keys.reduce((total,cur)=>{
     if(!total){
@@ -48,11 +46,12 @@ app.get('/showall',function(req,res){
     }
     var presents = store[cur];
     presents.forEach(present=> {
-      console.log(present);
+      var number = present.number;
+      number = typeof number === "number"? number: parseInt(number);
       if(!total[present.name]){
-        total[present.name] = present.number;  
+        total[present.name] = number;  
       } else {
-        total[present.name] += present.number;
+        total[present.name] += number;
       }    
       
     })    
