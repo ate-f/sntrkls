@@ -22,11 +22,11 @@ function run() {
     inp.setAttribute('class',' form-control')
     var lbl = document.createElement("label");
     lbl.setAttribute('for', 'input_' + name);
-    lbl.setAttribute('class',"col-sm-1 control-label");
+    lbl.setAttribute('class',"col-sm-2 control-label");
     lbl.innerHTML = name;
     div.appendChild(lbl);
     var div2 =document.createElement("div");
-    div2.setAttribute('class',"col-xs-1");
+    div2.setAttribute('class',"col-sm-2");
 
     div2.appendChild(inp);
     div.appendChild(div2);
