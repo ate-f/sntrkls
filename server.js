@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 
+try{
+  
+
 var store = {};
 app.use( bodyParser.json() );       
 
@@ -57,3 +60,7 @@ app.get('/showall',function(req,res){
   },{});
   res.send(presentsTotal)
 })
+
+} catch(e){
+  console.log(e);
+}

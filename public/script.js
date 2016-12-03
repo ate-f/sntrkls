@@ -55,6 +55,7 @@ function save() {
   xhr.onreadystatechange = function () {
     console.log(xhr);
     setCookie(randomId);
+    handleCookiePresent(randomId);
   }
   xhr.send(JSON.stringify({
     id: randomId,
@@ -106,4 +107,6 @@ function reset() {
     document.getElementById('input_' + name).value = 0;
   })
 
+  document.getElementById('save').disabled = false;
+  document.getElementById('save').innerHTML = `Save`;
 }
