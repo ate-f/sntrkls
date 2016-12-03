@@ -35,3 +35,25 @@ app.delete('/presents/:id', function(req,res){
   console.log(store)
   res.send();
 })
+
+app.get('/showall',function(req,res){
+  console.log("showall");
+  var keys = Object.keys(store)
+  var presentsTotal = keys.reduce((total,cur)=>{
+    if(!total){
+      total = {};
+    }
+    var presents = store[cur];
+    presents.forEach(present=> {
+      console.log(present);
+      if(!total[present.name]){
+        total[present.name] = present.number;  
+      } else {
+        total[present.name] += present.number;
+      }    
+      
+    })    
+    return total;
+  },{});
+  res.send(presentsTotal)
+})

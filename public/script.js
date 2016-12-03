@@ -80,7 +80,7 @@ function handleCookiePresent(cookie) {
           });
         }  
       } catch(e){
-        
+        //t
       }
       
     }
@@ -97,10 +97,12 @@ function reset() {
   let randomId = c.split('=')[1];
   c = c + ";expires=Thu, 01 Jan 1970 00:00:01 GMT;";
   document.cookie = c;
+  console.log(document.cookie)
   var xhr = new XMLHttpRequest();
   xhr.open("DELETE", "/presents/" + randomId, true);
   xhr.send();
   names.forEach(name => {
     document.getElementById('input_' + name).value = 0;
   })
+
 }
